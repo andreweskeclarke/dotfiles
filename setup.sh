@@ -8,5 +8,5 @@ do
 	echo "   Moving ${HOME}/${DOTFILE} to ${HOME}/${DOTFILE}_old first"
         mv $HOME/$DOTFILE ${HOME}/${DOTFILE}_old
     fi
-    ln -sf $DOTFILE $HOME/$DOTFILE
+    ln -sf `pwd`/$DOTFILE $HOME/$DOTFILE
 done
