@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/andrew/src/prediction_machines/eplatform'
+let g:netrw_dirhist_2='/Users/andrew/src/prediction_machines/galileo'
+let g:netrw_dirhist_3='/Users/andrew/experiments/intro/wavy_5_10'
+let g:netrw_dirhist_4='/Users/andrew/experiments/intro/randomly_sampled_wavy_5_10'
+let g:netrw_dirhist_5='/Users/andrew/src/prediction_machines'
+let g:netrw_dirhist_6='/Users/andrew'
