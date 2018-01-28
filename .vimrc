@@ -23,7 +23,8 @@ cabbr <expr> %% expand('%:p:h')
 
 set path+=$PLATFORM_INCLUDES
 
+let g:solarized_termcolors=256
 syntax enable
-
 set background=dark
-colorscheme elflord
+colorscheme solarized
+
