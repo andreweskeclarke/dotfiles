@@ -17,3 +17,15 @@ let NERDTreeIgnore = ['\.pyc$']
 set runtimepath^=~/.vim/bundle/ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
+set number
+set nowrap
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+
+cabbr <expr> %% expand('%:p:h')
+
+set path+=$PLATFORM_INCLUDES
+
+syntax enable
+
+set background=dark
+colorscheme elflord

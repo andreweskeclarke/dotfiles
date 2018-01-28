@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for DOTFILE in .vimrc .tmux.conf .vim
+for DOTFILE in .vimrc .tmux.conf .vim .bashrc .bash_profile
 do
     echo "Linking $HOME/$DOTFILE..."
     if [ -e $HOME/$DOTFILE ]
