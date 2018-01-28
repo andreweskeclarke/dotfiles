@@ -58,32 +58,16 @@ PS1+="\$(git_branch)"           # prints current branch
 PS1+="\[$COLOR_GREEN\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
 export PS1
 export PATH=$PATH:~/src/maths/
-export BUILD_ROOT=/Users/andrew/src/prediction_machines/build.rules/
 export GTEST_COLOR=1
 
-export TIME="%e"
-function timeop() {
-OutputFile=/home/rodo/times.$1
-shift
-echo /usr/bin/time -ao $OutputFile "$@"
-/usr/bin/time -f "$PWD,%e" -ao $OutputFile "$@"
-}
-
-alias synergy='synergyc --name rkr --debug DEBUG1 --log synergylog.txt 192.168.1.8'
-
-alias build='touch ./build_output.log; ln -sf $PWD/build_output.log /home/rodo/build_output.log; timeop build make -j 8 VERBOSE=1 > build_output.log 2>&1 || vim build_output.log; grep warning build_output.log'
-alias tail_build='tail -f /home/rodo/build_output.log'
-
-alias focker='docker run --privileged=true --rm -it -v /home/rodo/:/home/rodo -v /tmp/.X11-unix:/tmp/.X11-unix -e "TERM=xterm" --security-opt seccomp=unconfined --net="host" -e "HOSTNAME=localhost" -e DISPLAY=unix$DISPLAY ';
-
+# Helper methods stolen from Rob Douglas
+alias focker='docker run --privileged=true --rm -it -v $HOME:$HOME -v /tmp/.X11-unix:/tmp/.X11-unix -e "TERM=xterm" --security-opt seccomp=unconfined --net="host" -e "HOSTNAME=localhost" -e DISPLAY=unix$DISPLAY ';
 function dockerGCC71() { sudo focker gcc:7.1 ;}
 function dockerGCC72() { sudo focker gcc:7.2 ;}
 function dockerMine() { sudo focker $1 ;}
 function dockerPull() { sudo docker pull $1 ;}
-alias runDocker='sudo systemctl start docker'
 
 alias fthist="find . -type f | sed 's/.*\///' | sed 's/.*\.//' | sort | uniq -c"
-
 alias find_sources='find . -name \*.h -o -name \*.cpp -o -name \*.cc -o -name \*.hpp -o -name \*.cxx -o -name \*.hxx -o -name \*.c -o -name \*.ipp'
 alias find_xml='find . -name \*.xml -o -name \*.xsl -o -name \*.xsd'
 alias find_python='find . -name \*.py'
@@ -96,7 +80,6 @@ function pylist { find_python > ~/pylist.$$.pylist; vim ~/pylist.$$.pylist; rm ~
 function cppfind { find_sources | xargs grep -n "$@" | tee ~/cppfind_results.$$.findres; vim ~/cppfind_results.$$.findres; rm ~/cppfind_results.$$.findres ;}
 function xmlfind { find_xml | xargs grep -n "$@" | tee ~/xmlfind_results.$$.findres; vim ~/xmlfind_results.$$.findres; rm ~/xmlfind_results.$$.findres ;}
 function pyfind { find_python | xargs grep -n "$@" | tee ~/pyfind_results.$$.findres; vim ~/pyfind_results.$$.findres; rm ~/pyfind_results.$$.findres ;}
-
 function cfgfind { find_configs | xargs grep -n "$@" | tee ~/cfgfind_results.$$.findres; vim ~/cfgfind_results.$$.findres; rm ~/cfgfind_results.$$.findres ;}
 
 function gdiff() { git diff "$@" > g_diff_diffs.$$.txt && vim g_diff_diffs.$$.txt && rm g_diff_diffs.$$.txt ;}

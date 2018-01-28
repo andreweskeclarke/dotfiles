@@ -1,9 +1,7 @@
-execute pathogen#infect()
+execute pathogen#infect('~/.vim/bundle/{}')
 syntax on
 filetype plugin indent on
-syntax on
 set number
-filetype indent plugin on
 set modeline
 set tabstop=4
 set softtabstop=0 
