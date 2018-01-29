@@ -60,6 +60,8 @@ export PS1
 export PATH=$PATH:~/src/maths/
 export GTEST_COLOR=1
 
+export tmux="tmux -2"
+
 # Helper methods stolen from Rob Douglas
 alias focker='docker run --privileged=true --rm -it -v $HOME:$HOME -v /tmp/.X11-unix:/tmp/.X11-unix -e "TERM=xterm" --security-opt seccomp=unconfined --net="host" -e "HOSTNAME=localhost" -e DISPLAY=unix$DISPLAY ';
 function dockerGCC71() { sudo focker gcc:7.1 ;}

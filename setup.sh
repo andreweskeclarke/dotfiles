@@ -6,6 +6,7 @@ do
     if [ -e $HOME/$DOTFILE ]
     then
 	echo "   Moving ${HOME}/${DOTFILE} to ${HOME}/${DOTFILE}_old first"
+	    rm -rf ${HOME}/${DOTFILE}_old
         mv $HOME/$DOTFILE ${HOME}/${DOTFILE}_old
     fi
     ln -sf `pwd`/$DOTFILE $HOME/$DOTFILE
