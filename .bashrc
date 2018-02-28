@@ -1,4 +1,3 @@
-eval "$(jenv init -)"
 
 # added by Anaconda3 2.3.0 installer
 export PATH="/Users/andrew/anaconda/bin:$PATH"
