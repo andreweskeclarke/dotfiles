@@ -51,7 +51,7 @@ function git_branch {
   fi
 }
 
-PS1="\[$COLOR_WHITE\]\u:\w "     # user:pwd
+PS1="\[$COLOR_WHITE\]\u@\h:\w "     # user:pwd
 PS1+="\[\$(git_color)\]"        # colors git status
 PS1+="\$(git_branch)"           # prints current branch
 PS1+="\[$COLOR_GREEN\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
