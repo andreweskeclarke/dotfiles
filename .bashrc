@@ -1,6 +1,6 @@
 
 # added by Anaconda3 2.3.0 installer
-export PATH="/Users/andrew/anaconda/bin:$PATH"
+export PATH="~/bin/:/Users/andrew/anaconda/bin:$PATH"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib64/
 export CPATH=$CPATH:~/.local/include
 export LIBRARY_PATH=$LIBRARY_PATH:~/.local/lib

@@ -1,13 +1,12 @@
 execute pathogen#infect('~/.vim/bundle/{}')
 syntax on
 filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 set number
 set modeline
-set tabstop=4
-set softtabstop=0 
-set expandtab 
-set shiftwidth=4
-set smarttab
 set hlsearch
 map <silent> <C-t> :NERDTreeToggle<CR>
 map <silent> <S-R> :NERDTreeFind<CR>
@@ -17,7 +16,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 set number
 set nowrap
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 cabbr <expr> %% expand('%:p:h')
 
