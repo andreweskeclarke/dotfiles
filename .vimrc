@@ -13,8 +13,6 @@ map <silent> <S-R> :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$']
 set runtimepath^=~/.vim/bundle/ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
-
-set number
 set nowrap
 
 cabbr <expr> %% expand('%:p:h')
@@ -26,3 +24,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+set autoread
+map <silent> <S-T> :wa<CR>:!make<CR>
+set timeoutlen=5
+set ttimeoutlen=5
