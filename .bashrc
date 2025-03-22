@@ -60,39 +60,3 @@ export PATH=$PATH:~/src/maths/
 export GTEST_COLOR=1
 
 export tmux="tmux -2"
-
-# Helper methods stolen from Rob Douglas
-alias focker='docker run --privileged=true --rm -it -v $HOME:$HOME -v /tmp/.X11-unix:/tmp/.X11-unix -e "TERM=xterm" --security-opt seccomp=unconfined --net="host" -e "HOSTNAME=localhost" -e DISPLAY=unix$DISPLAY ';
-function dockerGCC71() { sudo focker gcc:7.1 ;}
-function dockerGCC72() { sudo focker gcc:7.2 ;}
-function dockerMine() { sudo focker $1 ;}
-function dockerPull() { sudo docker pull $1 ;}
-
-alias fthist="find . -type f | sed 's/.*\///' | sed 's/.*\.//' | sort | uniq -c"
-alias find_sources='find . -name \*.h -o -name \*.cpp -o -name \*.cc -o -name \*.hpp -o -name \*.cxx -o -name \*.hxx -o -name \*.c -o -name \*.ipp'
-alias find_xml='find . -name \*.xml -o -name \*.xsl -o -name \*.xsd'
-alias find_python='find . -name \*.py'
-alias find_configs='find . -name \*.xml -o -name \*.cfg -o -name \*.json -o -name \*.yaml -o -name \*.yml -o -name \*.csv -o -name \*.ini'
-
-function cpplist { find_sources > ~/cpplist.$$.cpplist; vim ~/cpplist.$$.cpplist; rm ~/cpplist.$$.cpplist; }
-function xmllist { find_xml > ~/xmllist.$$.xmllist; vim ~/xmllist.$$.xmllist; rm ~/xmllist.$$.xmllist; }
-function pylist { find_python > ~/pylist.$$.pylist; vim ~/pylist.$$.pylist; rm ~/pylist.$$.pylist; }
-
-function cppfind { find_sources | xargs grep -n "$@" | tee ~/cppfind_results.$$.findres; vim ~/cppfind_results.$$.findres; rm ~/cppfind_results.$$.findres ;}
-function xmlfind { find_xml | xargs grep -n "$@" | tee ~/xmlfind_results.$$.findres; vim ~/xmlfind_results.$$.findres; rm ~/xmlfind_results.$$.findres ;}
-function pyfind { find_python | xargs grep -n "$@" | tee ~/pyfind_results.$$.findres; vim ~/pyfind_results.$$.findres; rm ~/pyfind_results.$$.findres ;}
-function cfgfind { find_configs | xargs grep -n "$@" | tee ~/cfgfind_results.$$.findres; vim ~/cfgfind_results.$$.findres; rm ~/cfgfind_results.$$.findres ;}
-
-function gdiff() { git diff "$@" > g_diff_diffs.$$.txt && vim g_diff_diffs.$$.txt && rm g_diff_diffs.$$.txt ;}
-function gshow() { git show "$@" > g_diff_diffs.$$.gshow && vim g_diff_diffs.$$.gshow && rm g_diff_diffs.$$.gshow ;}
-function gcdiff() { git diff "$@" --cached > g_diff_diffs.$$.txt && vim g_diff_diffs.$$.txt && rm g_diff_diffs.$$.txt ;}
-function gstatus() { git status > g_status.$$.txt && vim g_status.$$.txt && rm g_status.$$.txt ;}
-function gsstatus() { git submodule foreach git status ;}
-function gpull() { git pull --rebase ;}
-function gpush() { git push origin HEAD ;}
-function gsshow() { git stash show -p "$@" > g_stash_show_diffs.$$.gshow && vim g_stash_show_diffs.$$.gshow && rm g_stash_show_diffs.$$.gshow ;}
-function gshown() { git log --name-status -n "$@" | egrep 'commit [0-9a-z]+' | sed 's/commit //' | xargs git show > g_show_n_diffs.$$.gshow && vim g_show_n_diffs.$$.gshow && rm g_show_n_diffs.$$.gshow ;}
-function glog() { git log --name-status -n "$@" > g_log_results.$$.glog && vim g_log_results.$$.glog && rm g_log_results.$$.glog ;}
-function gspeek() { git stash show -p stash@{"$1"} > git_stash_peek.$$.gshow && vim git_stash_peek.$$.gshow && rm git_stash_peek.$$.gshow ;}
-function gsapply() { git stash apply stash@{"$1"} ;}
-
