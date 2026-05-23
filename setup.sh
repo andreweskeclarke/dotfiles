@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git submodule update --init --recursive
+
 for DOTFILE in .vimrc .tmux.conf .vim .bashrc .bash_profile .gitconfig
 do
     echo "Linking $HOME/$DOTFILE..."
